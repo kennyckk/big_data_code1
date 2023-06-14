@@ -173,14 +173,14 @@ class WordCount(MapReduce):
 
 if __name__ == '__main__':
     # Read files using the command "python3 mapreduce.py file.txt"
-    # if (len(sys.argv) != 2):
-    #     print("Program requires path  to filefor reading!")
-    #     sys.exit(1)
+    if (len(sys.argv) != 2):
+        print("Program requires path  to filefor reading!")
+        sys.exit(1)
 
-    file_path="hp.txt"
+
 
     # Create a WordCount MapReduce program
-    wc = WordCount(2, 2, file_path) # sys.argv[1]
+    wc = WordCount(os.cpu_count(), os.cpu_count(), sys.argv[1])
     # Run it
     wc.run()
     # Merge out of Reduce tasks:
